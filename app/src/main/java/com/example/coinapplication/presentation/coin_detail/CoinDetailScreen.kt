@@ -19,7 +19,10 @@ fun CoinDetailScreen(viewModel: CoinDetailViewModel = hiltViewModel()) {
     val state = viewModel.vmState.value
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
 
-        Text(state.coin?.name ?: "nothing to display")
+        if (state.coin != null) {
+            Text(state.coin.name)
+        }
+
         if (state.error.isNotBlank()) {
             Text(state.error)
         }
